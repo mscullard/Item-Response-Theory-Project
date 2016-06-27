@@ -1,0 +1,84 @@
+Item 1
+Question #: 229
+User score: 1
+Standard error of estimate: NaN
+Question information: 1.65799773366091
+Current theta estimate: 0.3
+
+Item 2
+Question #: 181
+User score: 1
+Standard error of estimate: NaN
+Question information: 1.88899101084601
+Current theta estimate: 0.6
+
+Item 3
+Question #: 182
+User score: 1
+Standard error of estimate: NaN
+Question information: 1.45083073347697
+Current theta estimate: 0.9
+
+Item 4
+Question #: 201
+User score: 1
+Standard error of estimate: NaN
+Question information: 1.88009691968754
+Current theta estimate: 1.2
+
+Item 5
+Question #: 189
+User score: 0
+Standard error of estimate: 0.431561166315187
+Question information: 1.91850356552537
+Current theta estimate: 1.35041469458923
+
+Item 6
+Question #: 146
+User score: 0
+Standard error of estimate: 0.371918439942217
+Question information: 1.52043164536577
+Current theta estimate: 1.25162954193546
+
+Item 7
+Question #: 143
+User score: 1
+Standard error of estimate: 0.35138436622532
+Question information: 1.45889820663772
+Current theta estimate: 1.41484698028268
+
+Item 8
+Question #: 232
+User score: 0
+Standard error of estimate: 0.315056778130931
+Question information: 1.4680161552921
+Current theta estimate: 1.28155808148527
+
+Item 9
+Question #: 193
+User score: 0
+Standard error of estimate: 0.291908428459264
+Question information: 1.36951816098413
+Current theta estimate: 1.14575587539536
+
+Item 10
+Question #: 196
+User score: 0
+Standard error of estimate: 0.278611641544282
+Question information: 1.19059550026488
+Current theta estimate: 1.07559034140969
+
+Item 11
+Question #: 215
+User score: 0
+Standard error of estimate: 0.268476114460844
+Question information: 1.16764643285161
+Current theta estimate: 1.0041549128452
+
+Item 12
+Question #: 141
+User score: 1
+Standard error of estimate: 0.257022850948774
+Question information: 1.18956833982335
+Current theta estimate: 1.05128966036156
+

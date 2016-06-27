@@ -1,0 +1,5 @@
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\IRT\bin\Release\IRT.dll
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\IRT\bin\Release\IRT.pdb
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\IRT\obj\Release\IRT.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\IRT\obj\Release\IRT.dll
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\IRT\obj\Release\IRT.pdb

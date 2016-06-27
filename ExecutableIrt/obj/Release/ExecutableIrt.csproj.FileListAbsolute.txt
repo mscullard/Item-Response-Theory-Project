@@ -1,0 +1,8 @@
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\bin\Release\ExecutableIrt.exe.config
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\bin\Release\ExecutableIrt.exe
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\bin\Release\ExecutableIrt.pdb
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\bin\Release\IRT.dll
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\bin\Release\IRT.pdb
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\obj\Release\ExecutableIrt.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\obj\Release\ExecutableIrt.exe
+C:\Users\Mike\Documents\Visual Studio 2013\Projects\IRT\ExecutableIrt\obj\Release\ExecutableIrt.pdb
