@@ -12,5 +12,10 @@ namespace IRT.ModelParameters
         public double Alpha;
         public double Delta;
         public double Chi;
+
+        public IModelParameters DeepCopy()
+        {
+            return new ThreeParamModelParameters(Alpha, Delta, Chi);
+        }
     }
 }

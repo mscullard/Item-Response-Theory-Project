@@ -15,6 +15,10 @@ namespace IRT.InformationFunctions
             {
                 return new ThreeParamItemInformationFunction((ThreeParamModelParameters) modelParameters);
             }
+            if (modelParameters.GetType() == typeof(FourParamModelParameters))
+            {
+                return new FourParamItemInformationFunction((FourParamModelParameters)modelParameters);
+            }
 
             throw new NotImplementedException();
         }

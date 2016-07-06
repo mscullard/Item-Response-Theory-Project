@@ -68,7 +68,7 @@ namespace ExecutableIrt
             foreach (var scaleName in scaleNames)
             {
                 List<ItemInformation> itemInfoForScale = itemInformationList.Where(x => x.ScaleName.Equals(scaleName)).ToList();
-                IQuestionLoader questionLoader = new ExcelQuestionLoader(itemInfoForScale);
+                IQuestionLoader questionLoader = new ExcelQuestionLoader(itemInfoForScale, catParameters.MistakeProbability);
                 foreach (var personName in personNames)
                 {
                     UserAnswers personAnswers = answersInput.Single(x => x.PersonName.Equals(personName));

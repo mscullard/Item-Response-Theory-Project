@@ -8,6 +8,10 @@ namespace IRT
     {
         public IProbabilityFunction Build(IModelParameters parameters)
         {
+            if (parameters.GetType() == typeof(FourParamModelParameters))
+            {
+                return new FourParamProbabilityFunction((FourParamModelParameters)parameters);
+            }
             if (parameters.GetType() == typeof (ThreeParamModelParameters))
             {
                 return new ThreeParamProbabilityFunction((ThreeParamModelParameters)parameters);

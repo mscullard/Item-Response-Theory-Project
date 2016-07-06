@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using IRT.Data;
 using IRT.ModelParameters;
+using IRT.Parameters;
 
 namespace IRT.ThetaEstimation
 {
@@ -10,19 +11,23 @@ namespace IRT.ThetaEstimation
     {
         private readonly List<double> _increasingZeroVarianceStepSize;
         private readonly List<double> _decreasingZeroVarianceStepSize;
+        private readonly bool _useDiscriminationParameter;
 
         private int _zeroVarianceStepSizeCounter;
 
-        public BestThetaEstimator(List<double> increasingZeroVarianceStepSize, List<double> decreasingZeroVarianceStepSize)
+        public BestThetaEstimator(List<double> increasingZeroVarianceStepSize, List<double> decreasingZeroVarianceStepSize, bool useDiscriminationParameter)
         {
             _increasingZeroVarianceStepSize = increasingZeroVarianceStepSize;
             _decreasingZeroVarianceStepSize = decreasingZeroVarianceStepSize;
+            _useDiscriminationParameter = useDiscriminationParameter;
             _zeroVarianceStepSizeCounter = 0;
         }
 
         public double EstimateBestTheta(List<QuestionInfo> questionHistory, double previousTheta)
         {
-            List<IModelParameters> modelParametersList = questionHistory.Select(x => x.Question.ModelParameters).ToList();
+            List<IModelParameters> modelParametersList = GetModelParametersList(questionHistory);
+                //questionHistory.Select(x => x.Question.ModelParameters).ToList();
+
             List<int> responseVector = questionHistory.Select(x => (int)x.Score).ToList();
 
             if (AllResponsesCorrect(responseVector))
@@ -39,6 +44,54 @@ namespace IRT.ThetaEstimation
             var mleOfTheta = mleEstimator.GetMle(responseVector);
 
             return mleOfTheta;
+        }
+
+        private List<IModelParameters> GetModelParametersList(List<QuestionInfo> questionHistory)
+        {
+            var modelParametersList = questionHistory.Select(x => x.Question.ModelParameters).ToList();
+            if (_useDiscriminationParameter)
+            {
+                return modelParametersList;
+            }
+
+            List<IModelParameters> modelParametersListCopy = DeepCopy(modelParametersList);
+            List<IModelParameters> noDiscriminantModelParametersList = SetDiscriminantToOne(modelParametersListCopy);
+
+            return noDiscriminantModelParametersList;
+        }
+
+        private List<IModelParameters> SetDiscriminantToOne(List<IModelParameters> modelParametersList)
+        {
+            Type modelParameterType = modelParametersList[0].GetType();
+
+            foreach (var modelParameter in modelParametersList)
+            {
+                if (modelParameterType == typeof(TwoParamModelParameters))
+                {
+                    ((TwoParamModelParameters) modelParameter).Alpha = 1;
+                }
+                if (modelParameterType == typeof(ThreeParamModelParameters))
+                {
+                    ((ThreeParamModelParameters)modelParameter).Alpha = 1;
+                }
+                if (modelParameterType == typeof(FourParamModelParameters))
+                {
+                    ((FourParamModelParameters)modelParameter).Alpha = 1;
+                }
+            }
+
+            return modelParametersList;
+        }
+
+        private List<IModelParameters> DeepCopy(List<IModelParameters> modelParametersList)
+        {
+            List<IModelParameters> listCopy = new List<IModelParameters>();
+            foreach (var parameter in modelParametersList)
+            {
+                listCopy.Add(parameter.DeepCopy());
+            }
+
+            return listCopy;
         }
 
         private double GetIncreasingNonZeroVarianceStep()

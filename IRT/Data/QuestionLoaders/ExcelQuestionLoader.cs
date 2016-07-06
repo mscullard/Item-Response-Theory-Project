@@ -7,10 +7,17 @@ namespace IRT.Data.QuestionLoaders
     public class ExcelQuestionLoader : IQuestionLoader
     {
         private readonly List<ItemInformation> _itemInformationList;
+        private readonly double _mistakeProbability;
 
         public ExcelQuestionLoader(List<ItemInformation> itemInformationList)
         {
             _itemInformationList = itemInformationList;
+        }
+
+        public ExcelQuestionLoader(List<ItemInformation> itemInformationList, double mistakeProbability)
+        {
+            _itemInformationList = itemInformationList;
+            _mistakeProbability = mistakeProbability;
         }
 
         public List<Question> LoadQuestions()
@@ -19,7 +26,7 @@ namespace IRT.Data.QuestionLoaders
 
             foreach (var item in _itemInformationList)
             {
-                IModelParameters modelParameters = new ThreeParamModelParameters(item.ParameterA, item.ParameterB, item.ParameterC);
+                IModelParameters modelParameters = new FourParamModelParameters(item.ParameterA, item.ParameterB, item.ParameterC, 1 - _mistakeProbability);
                 Question question = new Question()
                 {
                     ModelParameters = modelParameters,

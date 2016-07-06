@@ -15,5 +15,10 @@
         public double Delta;
         public double Chi;
         public double Epsilon;
+
+        public IModelParameters DeepCopy()
+        {
+            return new FourParamModelParameters(Alpha, Delta, Chi, Epsilon);
+        }
     }
 }
