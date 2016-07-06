@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using ExecutableIrt.Enumerations;
 using IRT.Parameters;
 
 namespace ExecutableIrt.ExcelInteraction

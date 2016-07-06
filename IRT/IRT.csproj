@@ -42,7 +42,10 @@
     <Compile Include="Data\AnswerSheetLoaders\ExcelAnswerSheetLoader.cs" />
     <Compile Include="Data\AnswerSheetLoaders\ScaleAnswers.cs" />
     <Compile Include="Data\AnswerSheetLoaders\UserAnswers.cs" />
+    <Compile Include="InformationFunctions\FourParamItemInformationFunction.cs" />
+    <Compile Include="ModelParameters\FourParamModelParameters.cs" />
     <Compile Include="Parameters\CATParameters.cs" />
+    <Compile Include="Parameters\ModelType.cs" />
     <Compile Include="Parameters\Orientation.cs" />
     <Compile Include="Parameters\ItemInformation.cs" />
     <Compile Include="Data\AnswerSheetLoaders\TextAnswerSheetLoader.cs" />
@@ -51,6 +54,7 @@
     <Compile Include="Data\QuestionLoaders\ExcelQuestionLoader.cs" />
     <Compile Include="Mathematics\GlobalMaximizer.cs" />
     <Compile Include="Mathematics\GradientDescentMaximizer.cs" />
+    <Compile Include="ProbabilityFunctions\FourParamProbabilityFunction.cs" />
     <Compile Include="ThetaEstimation\BestThetaEstimator.cs" />
     <Compile Include="Data\Question.cs" />
     <Compile Include="Data\QuestionInfo.cs" />

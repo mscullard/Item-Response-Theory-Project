@@ -4,6 +4,7 @@ using System.Linq;
 using ExecutableIrt;
 using IRT.Data;
 using IRT.InformationFunctions;
+using IRT.Parameters;
 using IRT.ThetaEstimation;
 
 namespace IRT
@@ -50,7 +51,7 @@ namespace IRT
             List<QuestionInfo> questionHistory = new List<QuestionInfo>();
             for (int i = 0; i < _catParameters.MaximumNumberOfQuestions && unaskedQuestions.Count != 0; i++)
             {
-                QuestionInfo questionInfo = GetNextQuestion(theta, unaskedQuestions);
+                QuestionInfo questionInfo = GetNextQuestion(theta, unaskedQuestions, i);
                 unaskedQuestions.Remove(questionInfo.Question);
 
                 AskQuestion(questionInfo.Question.QuestionLabel);
@@ -123,11 +124,25 @@ namespace IRT
         }
 
         // For the given theta, returns the best information not yet used.
-        private QuestionInfo GetNextQuestion(double theta, List<Question> unaskedQuestions)
+        private QuestionInfo GetNextQuestion(double theta, List<Question> unaskedQuestions, int numQuestionsAsked)
         {
             InformationFunctionFactory factory = new InformationFunctionFactory();
             double maxInformation = Double.MinValue;
             Question questionWithHighestInfo = new Question();
+            if (_catParameters.NumQuestionsBeforeCatBegins > numQuestionsAsked)
+            {
+                var firstRemainingQuestion = unaskedQuestions.First();
+
+                IItemInformationFunction informationFunction = factory.Build(firstRemainingQuestion.ModelParameters);
+                double information = informationFunction.GetInformation(theta);
+
+                return new QuestionInfo()
+                {
+                    Question = firstRemainingQuestion,
+                    Information = information
+                };
+            }
+
             foreach (var question in unaskedQuestions)
             {
                 IItemInformationFunction informationFunction = factory.Build(question.ModelParameters);

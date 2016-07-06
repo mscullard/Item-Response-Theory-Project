@@ -22,3 +22,11 @@ C:\SVN\IRT2\IRT\ExecutableIrt\bin\Debug\ExecutableIrt.pdb
 C:\SVN\IRT2\IRT\ExecutableIrt\bin\Debug\IRT.dll
 C:\SVN\IRT2\IRT\ExecutableIrt\bin\Debug\IRT.pdb
 C:\SVN\IRT2\IRT\ExecutableIrt\obj\Debug\ExecutableIrt.csprojResolveAssemblyReference.cache
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\bin\Debug\ExecutableIrt.exe.config
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\bin\Debug\ExecutableIrt.exe
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\bin\Debug\ExecutableIrt.pdb
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\bin\Debug\IRT.dll
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\bin\Debug\IRT.pdb
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\obj\Debug\ExecutableIrt.csprojResolveAssemblyReference.cache
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\obj\Debug\ExecutableIrt.exe
+C:\SVN\IRT2\Item-Response-Theory-Project\ExecutableIrt\obj\Debug\ExecutableIrt.pdb

@@ -1,6 +1,4 @@
-﻿using ExecutableIrt.Enumerations;
-
-namespace IRT.Parameters
+﻿namespace IRT.Parameters
 {
     public class ItemInformation
     {

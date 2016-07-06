@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using IRT.Parameters;
 
 namespace ExecutableIrt.ExcelInteraction.DataObjects
 {
@@ -11,5 +12,10 @@ namespace ExecutableIrt.ExcelInteraction.DataObjects
         public List<double> IncreasingZeroVarianceStepsize;
         public List<double> DecreasingZeroVarianceStepsize;
         public List<double> StartingThetaList;
+        public int NumQuestionsBeforeCatBegins;
+        public double MistakeProbability;
+        public bool UseDiscriminationParamForEstimation;
+        public ModelType ModelType;
+        public double? BayesianVariance;
     }
 }

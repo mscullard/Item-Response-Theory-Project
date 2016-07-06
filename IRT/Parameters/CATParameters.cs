@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ExecutableIrt
+namespace IRT.Parameters
 {
     public class CATParameters
     {
@@ -10,5 +10,10 @@ namespace ExecutableIrt
         public double InformationCutoff;
         public List<double> IncreasingZeroVarianceStepSize; 
         public List<double> DecreasingZeroVarianceStepSize;
+        public int NumQuestionsBeforeCatBegins;
+        public double MistakeProbability;
+        public ModelType ModelType;
+        public double? BayesianVariance;
+        public bool UseDiscriminationParameterForEstimation;
     }
 }

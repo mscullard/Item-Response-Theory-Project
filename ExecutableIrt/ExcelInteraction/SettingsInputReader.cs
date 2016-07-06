@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ExecutableIrt.ExcelInteraction.DataObjects;
+using IRT.Parameters;
 using Microsoft.Office.Interop.Excel;
 
 namespace ExecutableIrt.ExcelInteraction
@@ -15,9 +17,15 @@ namespace ExecutableIrt.ExcelInteraction
         private string InformationCutoffCell = "B7";
         private string StepSizeIncreasingRange = "B8:Z8";
         private string StepSizeDecreasingRange = "B9:Z9";
+        private string NumQuestionsBeforeCatBeginsCell = "B10";        
+        private string MistakeProbabilityCell = "B11";
+        private string UseDiscriminationParameterForEstimationCell = "B12";
+        private string ModelTypeCell = "B13";
+        private string BayesianVarianceCell = "B14";
 
         public SettingsInput ReadSettings(Worksheet sheet)
         {
+            ModelType modelType = GetModelType(sheet);
             SettingsInput settingsInputReader = new SettingsInput()
             {
                 DecreasingZeroVarianceStepsize = GetDecreasingStepSize(sheet),
@@ -26,10 +34,70 @@ namespace ExecutableIrt.ExcelInteraction
                 MaximumNumberOfQuestions = GetMaxNumQuestions(sheet),
                 MinimumNumberOfQuestions = GetMinNumQuestions(sheet),
                 SeeCutoff = GetSeeCutoff(sheet),
-                StartingThetaList = GetStartingThetaList(sheet)
+                StartingThetaList = GetStartingThetaList(sheet),
+                BayesianVariance = GetBayesianVariance(sheet, modelType),
+                MistakeProbability = GetMistakeProbability(sheet),
+                ModelType = modelType,
+                UseDiscriminationParamForEstimation = GetUseDiscriminationParamForEstimation(sheet),
+                NumQuestionsBeforeCatBegins = GetNumQuestionsBeforeCatBegins(sheet)
             };
 
             return settingsInputReader;
+        }
+
+        private int GetNumQuestionsBeforeCatBegins(Worksheet sheet)
+        {
+            string row = CellReader.GetCell(NumQuestionsBeforeCatBeginsCell, sheet);
+
+            return Convert.ToInt32(row);
+        }
+
+        private bool GetUseDiscriminationParamForEstimation(Worksheet sheet)
+        {
+            string row = CellReader.GetCell(UseDiscriminationParameterForEstimationCell, sheet);
+            row = row.ToLower();
+
+            return String.Equals(row, "true") ;
+        }
+
+        private ModelType GetModelType(Worksheet sheet)
+        {
+            string row = CellReader.GetCell(ModelTypeCell, sheet);
+            row = row.ToLower();
+
+            ModelType modelType;
+            switch (row)
+            {
+                case "mle": 
+                    modelType = ModelType.MLE;
+                    break;
+                case "bayesian":
+                    modelType = ModelType.Bayesian;
+                    break;
+                default:
+                    throw new Exception("Model type not supported");
+            }
+
+            return modelType;
+        }
+
+        private double GetMistakeProbability(Worksheet sheet)
+        {
+            string row = CellReader.GetCell(MistakeProbabilityCell, sheet);
+
+            return Convert.ToDouble(row);
+        }
+
+        private double? GetBayesianVariance(Worksheet sheet, ModelType modelType)
+        {
+            string row = CellReader.GetCell(BayesianVarianceCell, sheet);
+
+            if (modelType != ModelType.Bayesian)
+            {
+                return null;
+            }
+
+            return Convert.ToDouble(row);
         }
 
         private List<double> GetDecreasingStepSize(Worksheet sheet)

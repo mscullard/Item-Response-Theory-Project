@@ -99,7 +99,12 @@ namespace ExecutableIrt
                 InformationCutoff = settingsInput.InformationCutoff,
                 MaximumNumberOfQuestions = settingsInput.MaximumNumberOfQuestions,
                 MinimumNumberOfQuestions = settingsInput.MinimumNumberOfQuestions,
-                SeeCutoff = settingsInput.SeeCutoff
+                SeeCutoff = settingsInput.SeeCutoff,
+                UseDiscriminationParameterForEstimation = settingsInput.UseDiscriminationParamForEstimation,
+                BayesianVariance = settingsInput.BayesianVariance,
+                MistakeProbability = settingsInput.MistakeProbability,
+                ModelType = settingsInput.ModelType,
+                NumQuestionsBeforeCatBegins = settingsInput.NumQuestionsBeforeCatBegins,
             };
 
             return catParameters;
