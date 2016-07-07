@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ExecutableIrt;
 using IRT.Data;
+using IRT.Parameters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IRT.UnitTests
@@ -105,7 +106,7 @@ namespace IRT.UnitTests
                 MaximumNumberOfQuestions = Int16.MaxValue,
                 MinimumNumberOfQuestions = Int16.MinValue,
                 SeeCutoff = Double.NegativeInfinity,
-                IncreasingZeroVarianceStepSize = .3
+                //IncreasingZeroVarianceStepSize = .3
             };
 
             return catParameters;

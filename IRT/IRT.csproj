@@ -43,9 +43,9 @@
     <Compile Include="Data\AnswerSheetLoaders\ScaleAnswers.cs" />
     <Compile Include="Data\AnswerSheetLoaders\UserAnswers.cs" />
     <Compile Include="InformationFunctions\FourParamItemInformationFunction.cs" />
+    <Compile Include="Mathematics\NormalDensity.cs" />
     <Compile Include="ModelParameters\FourParamModelParameters.cs" />
     <Compile Include="Parameters\CATParameters.cs" />
-    <Compile Include="Parameters\ModelType.cs" />
     <Compile Include="Parameters\Orientation.cs" />
     <Compile Include="Parameters\ItemInformation.cs" />
     <Compile Include="Data\AnswerSheetLoaders\TextAnswerSheetLoader.cs" />

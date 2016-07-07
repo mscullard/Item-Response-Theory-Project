@@ -55,6 +55,7 @@
     <Compile Include="LocationEstimatorTests.cs" />
     <Compile Include="Mathematics\GlobalMaximizerTests.cs" />
     <Compile Include="Mathematics\GradientDescentExtremaFinderTests.cs" />
+    <Compile Include="Mathematics\UnitTest1.cs" />
     <Compile Include="MaximumLikelihoodEstimation\MaximumLikelihoodEstimatorTests.cs" />
     <Compile Include="MaximumLikelihoodEstimation\LogLikelihoodFunctionTests.cs" />
     <Compile Include="ProbabilityFunctions\ThreeParamProbabilityFunctionTests.cs" />

@@ -25,7 +25,6 @@ namespace ExecutableIrt.ExcelInteraction
 
         public SettingsInput ReadSettings(Worksheet sheet)
         {
-            ModelType modelType = GetModelType(sheet);
             SettingsInput settingsInputReader = new SettingsInput()
             {
                 DecreasingZeroVarianceStepsize = GetDecreasingStepSize(sheet),
@@ -35,9 +34,7 @@ namespace ExecutableIrt.ExcelInteraction
                 MinimumNumberOfQuestions = GetMinNumQuestions(sheet),
                 SeeCutoff = GetSeeCutoff(sheet),
                 StartingThetaList = GetStartingThetaList(sheet),
-                BayesianVariance = GetBayesianVariance(sheet, modelType),
                 MistakeProbability = GetMistakeProbability(sheet),
-                ModelType = modelType,
                 UseDiscriminationParamForEstimation = GetUseDiscriminationParamForEstimation(sheet),
                 NumQuestionsBeforeCatBegins = GetNumQuestionsBeforeCatBegins(sheet)
             };
@@ -60,42 +57,9 @@ namespace ExecutableIrt.ExcelInteraction
             return String.Equals(row, "true") ;
         }
 
-        private ModelType GetModelType(Worksheet sheet)
-        {
-            string row = CellReader.GetCell(ModelTypeCell, sheet);
-            row = row.ToLower();
-
-            ModelType modelType;
-            switch (row)
-            {
-                case "mle": 
-                    modelType = ModelType.MLE;
-                    break;
-                case "bayesian":
-                    modelType = ModelType.Bayesian;
-                    break;
-                default:
-                    throw new Exception("Model type not supported");
-            }
-
-            return modelType;
-        }
-
         private double GetMistakeProbability(Worksheet sheet)
         {
             string row = CellReader.GetCell(MistakeProbabilityCell, sheet);
-
-            return Convert.ToDouble(row);
-        }
-
-        private double? GetBayesianVariance(Worksheet sheet, ModelType modelType)
-        {
-            string row = CellReader.GetCell(BayesianVarianceCell, sheet);
-
-            if (modelType != ModelType.Bayesian)
-            {
-                return null;
-            }
 
             return Convert.ToDouble(row);
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using IRT.InformationFunctions;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using IRT.ProbabilityFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

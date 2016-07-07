@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using IRT.Parameters;
 
 namespace ExecutableIrt.ExcelInteraction.DataObjects
 {
@@ -15,7 +14,5 @@ namespace ExecutableIrt.ExcelInteraction.DataObjects
         public int NumQuestionsBeforeCatBegins;
         public double MistakeProbability;
         public bool UseDiscriminationParamForEstimation;
-        public ModelType ModelType;
-        public double? BayesianVariance;
     }
 }

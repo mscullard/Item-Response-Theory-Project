@@ -101,9 +101,7 @@ namespace ExecutableIrt
                 MinimumNumberOfQuestions = settingsInput.MinimumNumberOfQuestions,
                 SeeCutoff = settingsInput.SeeCutoff,
                 UseDiscriminationParameterForEstimation = settingsInput.UseDiscriminationParamForEstimation,
-                BayesianVariance = settingsInput.BayesianVariance,
                 MistakeProbability = settingsInput.MistakeProbability,
-                ModelType = settingsInput.ModelType,
                 NumQuestionsBeforeCatBegins = settingsInput.NumQuestionsBeforeCatBegins,
             };
 

@@ -1,5 +1,6 @@
 ﻿using IRT.InformationFunctions;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IRT.UnitTests.InformationFunctions
@@ -14,6 +15,7 @@ namespace IRT.UnitTests.InformationFunctions
         public void GetInformation_SecondValueLineFromAyala_ReturnsCorrectInfo()
         {
             TwoParamModelParameters modelParameters = new TwoParamModelParameters(2.954, .560);
+
             TwoParamItemInformationFunction informationFunction = new TwoParamItemInformationFunction(modelParameters);
             const double theta = .3;
             var calculatedInformation = informationFunction.GetInformation(theta);

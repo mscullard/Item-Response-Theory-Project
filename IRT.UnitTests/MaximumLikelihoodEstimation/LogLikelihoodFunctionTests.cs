@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IRT.Mathematics;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using IRT.ProbabilityFunctions;
 using IRT.ThetaEstimation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -201,6 +202,7 @@ namespace IRT.UnitTests.MaximumLikelihoodEstimation
             double delta2 = .6;
             double chi2 = .7;
             ThreeParamModelParameters modelParameters2 = new ThreeParamModelParameters(alpha2, delta2, chi2);
+
 
             ThreeParamModelParameters modelParameters3 = new ThreeParamModelParameters(alpha2, delta2, chi2);
 

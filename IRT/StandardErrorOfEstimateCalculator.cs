@@ -22,7 +22,6 @@ namespace IRT
             List<IModelParameters> modelParametersList = questionHistory.Select(x => x.Question.ModelParameters).ToList();
             List<int> responseVector = questionHistory.Select(x => (int) x.Score).ToList();
 
-
             double sum = 0;
             for (int i = 0; i < responseVector.Count; i++)
             {

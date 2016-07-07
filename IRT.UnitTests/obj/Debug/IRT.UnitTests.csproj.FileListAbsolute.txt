@@ -12,3 +12,10 @@ H:\documents\Personal\IRT2\IRT\IRT.UnitTests\bin\Debug\IRT.pdb
 H:\documents\Personal\IRT2\IRT\IRT.UnitTests\obj\Debug\IRT.UnitTests.csprojResolveAssemblyReference.cache
 H:\documents\Personal\IRT2\IRT\IRT.UnitTests\obj\Debug\IRT.UnitTests.dll
 H:\documents\Personal\IRT2\IRT\IRT.UnitTests\obj\Debug\IRT.UnitTests.pdb
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\obj\Debug\IRT.UnitTests.csprojResolveAssemblyReference.cache
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\obj\Debug\IRT.UnitTests.dll
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\bin\Debug\IRT.UnitTests.dll
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\bin\Debug\IRT.UnitTests.pdb
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\bin\Debug\IRT.dll
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\bin\Debug\IRT.pdb
+C:\SVN\IRT2\Item-Response-Theory-Project\IRT.UnitTests\obj\Debug\IRT.UnitTests.pdb

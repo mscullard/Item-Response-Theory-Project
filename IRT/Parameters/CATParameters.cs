@@ -12,7 +12,6 @@ namespace IRT.Parameters
         public List<double> DecreasingZeroVarianceStepSize;
         public int NumQuestionsBeforeCatBegins;
         public double MistakeProbability;
-        public ModelType ModelType;
         public double? BayesianVariance;
         public bool UseDiscriminationParameterForEstimation;
     }

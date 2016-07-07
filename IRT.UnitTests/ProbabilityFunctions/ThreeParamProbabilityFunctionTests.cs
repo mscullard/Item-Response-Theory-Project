@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IRT.Mathematics;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using IRT.ProbabilityFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -23,6 +24,7 @@ namespace IRT.UnitTests.ProbabilityFunctions
             double delta = .3;
             double chi = .4;
             ThreeParamModelParameters parameters = new ThreeParamModelParameters(alpha, delta, chi);
+
             ThreeParamProbabilityFunction probabilityFunction = new ThreeParamProbabilityFunction(parameters);
 
             double theta = delta;

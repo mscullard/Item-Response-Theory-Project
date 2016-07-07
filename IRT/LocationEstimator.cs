@@ -40,7 +40,8 @@ namespace IRT
             _questionLoader = questionLoader;
             _answerSheetLoader = answerSheetLoader;
             _catParameters = catParameters;
-            _bestThetaEstimator = new BestThetaEstimator(catParameters.IncreasingZeroVarianceStepSize, catParameters.DecreasingZeroVarianceStepSize, catParameters.UseDiscriminationParameterForEstimation);
+            _bestThetaEstimator 
+                = new BestThetaEstimator(catParameters.IncreasingZeroVarianceStepSize, catParameters.DecreasingZeroVarianceStepSize, catParameters.UseDiscriminationParameterForEstimation);
         }
 
         public List<QuestionInfo> EstimatePersonLocation()

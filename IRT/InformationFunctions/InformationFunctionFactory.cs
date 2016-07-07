@@ -13,7 +13,7 @@ namespace IRT.InformationFunctions
             }
             if (modelParameters.GetType() == typeof(ThreeParamModelParameters))
             {
-                return new ThreeParamItemInformationFunction((ThreeParamModelParameters) modelParameters);
+                return new ThreeParamItemInformationFunction((ThreeParamModelParameters)modelParameters);
             }
             if (modelParameters.GetType() == typeof(FourParamModelParameters))
             {

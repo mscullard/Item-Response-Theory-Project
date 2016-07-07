@@ -1,5 +1,6 @@
 ﻿using System;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using IRT.ProbabilityFunctions;
 
 namespace IRT

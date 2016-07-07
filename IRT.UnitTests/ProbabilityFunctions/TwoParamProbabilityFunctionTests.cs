@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IRT.Mathematics;
 using IRT.ModelParameters;
+using IRT.Parameters;
 using IRT.ProbabilityFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
