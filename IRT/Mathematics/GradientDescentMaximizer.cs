@@ -7,11 +7,12 @@ namespace IRT.Mathematics
         private readonly OneDimensionalFunction _derivativeFunction;
         private const int MaxIterations = 5000;
         private double Alpha = .01;
-        private const double Tolerance = .000001;
+        private double _tolerance;
 
-        public GradientDescentExtremaFinder(OneDimensionalFunction derivativeFunction)
+        public GradientDescentExtremaFinder(OneDimensionalFunction derivativeFunction, double tolerance = .001)
         {
             _derivativeFunction = derivativeFunction;
+            _tolerance = tolerance;
         }
 
         public double FindMinimum(double initialGuess)
@@ -36,17 +37,19 @@ namespace IRT.Mathematics
 
             throw new Exception(String.Format("Unable to find minimum using gradient descent within {0} iterations",
                 MaxIterations));
+
         }
 
         public double FindMaximum(double initialGuess)
         {
             OneDimensionalFunction negativeOfDerivative = x => -_derivativeFunction(x);
+
             return InternalFindMin(initialGuess, negativeOfDerivative);
         }
 
         private bool DifferenceWithinTolerance(double x1, double x2)
         {
-            return Math.Abs(x1 - x2) < Tolerance;
+            return Math.Abs(x1 - x2) < _tolerance;
         }
     }
 }

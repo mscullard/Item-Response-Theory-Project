@@ -14,5 +14,6 @@ namespace IRT.Parameters
         public double MistakeProbability;
         public double? BayesianVariance;
         public bool UseDiscriminationParameterForEstimation;
+        public double Tolerance;
     }
 }

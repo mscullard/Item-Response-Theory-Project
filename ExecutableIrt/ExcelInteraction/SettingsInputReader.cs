@@ -20,8 +20,7 @@ namespace ExecutableIrt.ExcelInteraction
         private string NumQuestionsBeforeCatBeginsCell = "B10";        
         private string MistakeProbabilityCell = "B11";
         private string UseDiscriminationParameterForEstimationCell = "B12";
-        private string ModelTypeCell = "B13";
-        private string BayesianVarianceCell = "B14";
+        private string ToleranceCell = "B13";
 
         public SettingsInput ReadSettings(Worksheet sheet)
         {
@@ -36,10 +35,18 @@ namespace ExecutableIrt.ExcelInteraction
                 StartingThetaList = GetStartingThetaList(sheet),
                 MistakeProbability = GetMistakeProbability(sheet),
                 UseDiscriminationParamForEstimation = GetUseDiscriminationParamForEstimation(sheet),
-                NumQuestionsBeforeCatBegins = GetNumQuestionsBeforeCatBegins(sheet)
+                NumQuestionsBeforeCatBegins = GetNumQuestionsBeforeCatBegins(sheet),
+                Tolerance = GetTolerance(sheet)
             };
 
             return settingsInputReader;
+        }
+
+        private double GetTolerance(Worksheet sheet)
+        {
+            string row = CellReader.GetCell(ToleranceCell, sheet);
+
+            return Convert.ToDouble(row);
         }
 
         private int GetNumQuestionsBeforeCatBegins(Worksheet sheet)
@@ -60,6 +67,11 @@ namespace ExecutableIrt.ExcelInteraction
         private double GetMistakeProbability(Worksheet sheet)
         {
             string row = CellReader.GetCell(MistakeProbabilityCell, sheet);
+
+            if (row.ToLower() == "false")
+            {
+                return 0;
+            }
 
             return Convert.ToDouble(row);
         }

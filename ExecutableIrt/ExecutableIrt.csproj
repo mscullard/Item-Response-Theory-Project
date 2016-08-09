@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataObjects\ScoringOutput.cs" />
     <Compile Include="ExcelInteraction\CellReader.cs" />
     <Compile Include="ExcelInteraction\DataObjects\ScoreDetails.cs" />
     <Compile Include="ExcelInteraction\ExcelClient.cs" />

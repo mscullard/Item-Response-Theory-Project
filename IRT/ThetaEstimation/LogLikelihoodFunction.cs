@@ -32,6 +32,27 @@ namespace IRT.ThetaEstimation
                 sum += x*Math.Log(p) + (1 - x)*Math.Log(1 - p);
             }
 
+            List<double> probabilities = new List<double>();
+            for (double theta2 = -6.0; theta2 <= 12.0; theta2 += .01)
+            {
+                double totalP = 1;
+                for (int i = 0; i < responseVector.Count; i++)
+                {
+                    var probabilityFunction = _probabilityFunctionFactory.Build(_modelParametersList[i]);
+                    double p = probabilityFunction.ProbabilityOfCorrectResponse(theta2);
+                    totalP*= (responseVector[i] == 1) ? p : 1- p;
+                }
+
+                probabilities.Add(totalP);
+            }
+
+            int numModelsParams = _modelParametersList.Count();
+            int matchingNum = 6;
+            if (numModelsParams == matchingNum)
+            {
+                double x = 1;
+            }
+
             return sum;
         }
 

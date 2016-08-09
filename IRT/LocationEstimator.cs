@@ -41,7 +41,11 @@ namespace IRT
             _answerSheetLoader = answerSheetLoader;
             _catParameters = catParameters;
             _bestThetaEstimator 
-                = new BestThetaEstimator(catParameters.IncreasingZeroVarianceStepSize, catParameters.DecreasingZeroVarianceStepSize, catParameters.UseDiscriminationParameterForEstimation);
+                = new BestThetaEstimator(
+                    catParameters.IncreasingZeroVarianceStepSize, 
+                    catParameters.DecreasingZeroVarianceStepSize, 
+                    catParameters.UseDiscriminationParameterForEstimation,
+                    catParameters.Tolerance);
         }
 
         public List<QuestionInfo> EstimatePersonLocation()

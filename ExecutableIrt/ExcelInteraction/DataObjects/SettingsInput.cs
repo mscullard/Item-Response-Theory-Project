@@ -14,5 +14,6 @@ namespace ExecutableIrt.ExcelInteraction.DataObjects
         public int NumQuestionsBeforeCatBegins;
         public double MistakeProbability;
         public bool UseDiscriminationParamForEstimation;
+        public double Tolerance;
     }
 }

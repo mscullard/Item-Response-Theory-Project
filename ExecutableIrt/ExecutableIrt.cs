@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ExecutableIrt.DataObjects;
 using ExecutableIrt.Excel.DataObjects;
 using ExecutableIrt.ExcelInteraction;
 using ExecutableIrt.ExcelInteraction.DataObjects;
@@ -43,9 +44,9 @@ namespace ExecutableIrt
             List<string> scaleNames = itemInformationList.Select(x => x.ScaleName).Distinct().ToList();
             List<string> personNames = answersInput.Select(x => x.PersonName).Distinct().ToList();
 
-            var scores = GetScores(scaleNames, itemInformationList, personNames, answersInput, catParameters);
+            var scoringOutput = GetScores(scaleNames, itemInformationList, personNames, answersInput, catParameters);
 
-            WriteOutput(excelLocationString, scores, excelClient.GetApplication());
+            WriteOutput(excelLocationString, scoringOutput, excelClient.GetApplication());
         }
 
         private static Workbook GetWb(string excelLocationString, ExcelClient excelClient)
@@ -55,16 +56,17 @@ namespace ExecutableIrt
             return workBook;
         }
 
-        private static void WriteOutput(string excelLocationString, List<ScoreDetails> scores, Application app)
+        private static void WriteOutput(string excelLocationString, ScoringOutput scores, Application app)
         {
             ExcelOutputWriter writer = new ExcelOutputWriter(excelLocationString, app);
             writer.Write(scores);
         }
 
-        private static List<ScoreDetails> GetScores(List<string> scaleNames, List<ItemInformation> itemInformationList, List<string> personNames, List<UserAnswers> answersInput,
+        private static ScoringOutput GetScores(List<string> scaleNames, List<ItemInformation> itemInformationList, List<string> personNames, List<UserAnswers> answersInput,
             CATParameters catParameters)
         {
             List<ScoreDetails> scores = new List<ScoreDetails>();
+            List<List<QuestionInfo>> questionInfoList = new List<List<QuestionInfo>>();
             foreach (var scaleName in scaleNames)
             {
                 List<ItemInformation> itemInfoForScale = itemInformationList.Where(x => x.ScaleName.Equals(scaleName)).ToList();
@@ -77,6 +79,7 @@ namespace ExecutableIrt
 
                     LocationEstimator locationEstimator = new LocationEstimator(questionLoader, answerSheetLoader, catParameters);
                     List<QuestionInfo> output = locationEstimator.EstimatePersonLocation();
+                    questionInfoList.Add(output);
 
                     ScoreDetails scoreDetails = new ScoreDetails()
                     {
@@ -87,7 +90,14 @@ namespace ExecutableIrt
                     scores.Add(scoreDetails);
                 }
             }
-            return scores;
+
+            ScoringOutput scoringOutput = new ScoringOutput()
+            {
+                FirstPersonQuestionInfo = questionInfoList.First(),
+                ScoreDetails = scores
+            };
+
+            return scoringOutput;
         }
 
         private static CATParameters ConvertToCatParameters(SettingsInput settingsInput)
@@ -103,6 +113,7 @@ namespace ExecutableIrt
                 UseDiscriminationParameterForEstimation = settingsInput.UseDiscriminationParamForEstimation,
                 MistakeProbability = settingsInput.MistakeProbability,
                 NumQuestionsBeforeCatBegins = settingsInput.NumQuestionsBeforeCatBegins,
+                Tolerance = settingsInput.Tolerance
             };
 
             return catParameters;

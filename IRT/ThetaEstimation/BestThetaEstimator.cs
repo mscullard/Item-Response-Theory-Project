@@ -12,14 +12,16 @@ namespace IRT.ThetaEstimation
         private readonly List<double> _increasingZeroVarianceStepSize;
         private readonly List<double> _decreasingZeroVarianceStepSize;
         private readonly bool _useDiscriminationParameter;
+        private readonly double _gradientDescentTolerance;
 
         private int _zeroVarianceStepSizeCounter;
 
-        public BestThetaEstimator(List<double> increasingZeroVarianceStepSize, List<double> decreasingZeroVarianceStepSize, bool useDiscriminationParameter)
+        public BestThetaEstimator(List<double> increasingZeroVarianceStepSize, List<double> decreasingZeroVarianceStepSize, bool useDiscriminationParameter, double gradientDescentTolerance)
         {
             _increasingZeroVarianceStepSize = increasingZeroVarianceStepSize;
             _decreasingZeroVarianceStepSize = decreasingZeroVarianceStepSize;
             _useDiscriminationParameter = useDiscriminationParameter;
+            _gradientDescentTolerance = gradientDescentTolerance;
             _zeroVarianceStepSizeCounter = 0;
         }
 
@@ -40,7 +42,7 @@ namespace IRT.ThetaEstimation
                 return previousTheta - GetDecreasingNonZeroVarianceStep();
             }
 
-            MaximumLikelihoodEstimator mleEstimator = new MaximumLikelihoodEstimator(modelParametersList);
+            MaximumLikelihoodEstimator mleEstimator = new MaximumLikelihoodEstimator(modelParametersList, _gradientDescentTolerance);
             var mleOfTheta = mleEstimator.GetMle(responseVector);
 
             return mleOfTheta;
